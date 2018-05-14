@@ -39,6 +39,7 @@ if (project.apply_sealights_in_subproject) {
 
     sealights {
         appName = "GradleExampleJava8"
+        testTasks = ["test", "kuku"]
     }
     println "Applied the subproject appName = $sealights.appName"
 }
