@@ -4,7 +4,7 @@ apply from: 'versions.gradle'
 subprojects {
     if (it.name != 'example_junit5') {
         apply from: '../general-settings.gradle'
-        apply from: '../versions.gradle'
+//        apply from: '../versions.gradle'
         apply from: '../jacoco-cfg.gradle'
     }
 }
@@ -89,6 +89,9 @@ subprojects {
             // testStage = "ut1"
              testListenerJar = "C:/Users/ala schneider/Dev/SL.OnPremise.Agents.Java/java-agent-bootstrapper/target/java-agent-bootstrapper-1.0.0-SNAPSHOT.jar"
              buildScannerJar = "C:/Users/ala schneider/Dev/SL.OnPremise.Agents.Java/java-build-agent/target/java-build-agent-1.0.0-SNAPSHOT.jar"
+            // The test tasks names for applying the test listener
+            // If not provided, the default tasks are assigned like in commented value
+            //testTasks=["test", "junitPlatformTest", "integrationTest"]
         }
 
         println "Assigned the default appName = $sealights.appName"
