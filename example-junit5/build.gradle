@@ -1,0 +1,200 @@
+
+buildscript {
+	repositories {
+		mavenCentral()
+		maven {
+			credentials {
+				username "devops"
+				password "s2015l"
+			}
+			url "http://nex.sealights.co:8081/repository/sealights-internal"
+		}
+		mavenLocal()
+	}
+	dependencies {
+		classpath 'org.junit.platform:junit-platform-gradle-plugin:1.1.0'
+		classpath "io.sealights.on-premise.agents.plugin:sealights-gradle-plugin:${versions.sealights}"
+	}
+}
+
+//plugins {
+//// the build-scan plugin must be defined only in the root project
+////	id 'com.gradle.build-scan' version '1.12.1'
+//	id 'java'
+//}
+
+//buildScan {
+//	licenseAgreementUrl = "https://gradle.com/terms-of-service"
+//	licenseAgree = "yes"
+//}
+apply from: '../general-settings.gradle'
+
+/**
+ * Using of the org.junit.platform.gradle.plugin is optional.
+ * If it is not applies, all the tests run normally and test listener is invoked
+ *
+ * If the plugin is applied, to ensure test listener is working,
+ * the following configuration must be done:
+ *
+ * junitPlatform {
+ * 		if (project.hasProperty('sl')) {
+ * 	    	enableStandardTestTask true
+ * 		}
+ * }
+ */
+
+apply plugin: 'org.junit.platform.gradle.plugin'
+
+ext.junit4Version        = '4.12'
+ext.junitVintageVersion  = '5.1.0'
+ext.junitPlatformVersion = '1.1.0'
+ext.junitJupiterVersion  = '5.1.0'
+
+dependencies {
+	// JUnit Jupiter API and TestEngine implementation
+	testCompile("org.junit.jupiter:junit-jupiter-api:${junitJupiterVersion}")
+	testRuntime("org.junit.jupiter:junit-jupiter-engine:${junitJupiterVersion}")
+
+	testCompile("junit:junit:${junit4Version}")
+	testRuntime("org.junit.vintage:junit-vintage-engine:${junitVintageVersion}") {
+		because 'allows JUnit 3 and JUnit 4 tests to run'
+	}
+
+	testRuntime("org.junit.platform:junit-platform-launcher:${junitPlatformVersion}") {
+		because 'allows tests to run from IDEs that bundle older version of launcher'
+	}
+}
+
+int javaVersion = Integer.valueOf((String) JavaVersion.current().getMajorVersion())
+if (javaVersion < 10) apply plugin: 'jacoco'
+
+test {
+	/* The configuration of junit platform
+	may be done here, if the  org.junit.platform.gradle.plugin was
+	not applied explicitly
+*/
+//	useJUnitPlatform {
+//		// includeEngines 'junit-jupiter', 'junit-vintage'
+//		// excludeEngines 'custom-engine'
+//
+//		// includeTags 'fast'
+//		excludeTags 'slow'
+//	}
+
+	useJUnitPlatform {
+	}
+
+	testLogging {
+		events 'passed', 'skipped', 'failed'
+	}
+
+	reports {
+		html.enabled = true
+	}
+
+	if (javaVersion < 10) finalizedBy jacocoTestReport
+}
+
+/**
+ * This block is used because the org.junit.platform.gradle.plugin is applied
+ */
+junitPlatform {
+//	enableStandardTestTask true
+	if (project.hasProperty('sl')) {
+		enableStandardTestTask true
+	}
+	// reportsDir file('build/test-results/junit-platform') // this is the default
+	// logManager 'org.apache.logging.log4j.jul.LogManager'
+}
+
+//// This is investigation for junit5 with junitPlatform
+//junitPlatform {
+//	afterEvaluate {
+//		def junitPlatformTestTask = tasks.getByName('junitPlatformTest')
+////		if (project.hasProperty('sl')) {
+////			junitPlatformTestTask.jvmArgs project.ext.sealights.javaAgentArg
+////			junitPlatformTestTask.systemProperties(project.sealights.javaAgentJvmParams)
+////		}
+//		println "junitPlatformTestTask.name: " + junitPlatformTestTask.name
+////		println "junitPlatformTestTask.jvmArgs" + junitPlatformTestTask.jvmArgs
+////		println "junitPlatformTestTask.systemProperties" + junitPlatformTestTask.systemProperties
+//	}
+//}
+
+//junitPlatformTest {
+//	doFirst {
+//		println "From junitPlatformTest.name: " + junitPlatformTest.name
+//		if (project.hasProperty('sl')) {
+//			jvmArgs sealights.javaAgentArg
+//			systemProperties(sealights.javaAgentJvmParams)
+//		}
+//	}
+//}
+//junitPlatform {
+//	filters {
+//		engines {
+//			// include 'junit-jupiter', 'junit-vintage'
+//			// exclude 'custom-engine'
+//		}
+//		tags {
+//			// include 'fast'
+//			exclude 'slow'
+//		}
+//		// includeClassNamePattern '.*Test'
+//		//enableStandardTestTask true
+//		if (project.hasProperty('sl')) {
+//			 //enableStandardTestTask true
+//		}
+//		// reportsDir file('build/test-results/junit-platform') // this is the default
+//		// logManager 'org.apache.logging.log4j.jul.LogManager'
+//	}
+//}
+
+//allprojects {
+//	println "TEST ME"
+//	tasks.withType(JavaExec) {
+//		if (it.name == 'junitPlatformTest') {
+//			doFirst {
+//				println "args: ${args}"
+//				println "sysProps: ${systemProperties}"
+//			}
+//		}
+//		if (it.name == 'junitPlatformTest' && project.hasProperty('sl')) {
+//			doFirst {
+//				println sealights
+//				println "args: ${args}"
+//				println "sysProps: ${systemProperties}"
+//				println "sealights.javaAgentArg: ${sealights.javaAgentArg}"
+//				println "sealights.javaAgentJvmParams: ${sealights.javaAgentJvmParams}"
+////				args sealights.javaAgentArg + " " args
+////				systemProperties systemProperties + sealights.javaAgentJvmParams
+//			}
+//		}
+//	}
+//}
+
+task wrapper(type: Wrapper) {
+	description = 'Generates gradlew[.bat] scripts'
+	gradleVersion = '4.6'
+}
+
+/***************************************************************************************
+ SEALIGHTS
+ ***************************************************************************************/
+
+/**
+ * This is executed, if a single project should be built with SL
+ * This is the default behavior when option 'all' is not provided
+ * The default root project settings is overwritten to get particular results of the subproject
+ */
+if (project.apply_sealights_in_subproject) {
+	apply plugin: 'io.sealights.on-premise.agents.plugin.sealights-gradle-plugin'
+
+	sealights {
+		appName = "GradleExampleJunit5"
+		sealightsJvmParams=["sl.junitVersion":"5"]
+	}
+	println "Applied the subproject appName = $sealights.appName"
+	ext.appName = ["$sealights.appName"]
+	ext.packagesIncluded = ["$sealights.packagesIncluded"]
+}
