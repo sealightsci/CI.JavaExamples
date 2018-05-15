@@ -15,7 +15,6 @@
 	<url>http://maven.apache.org</url>
 
 	<properties>
-		<maven.compiler.plugin.version>3.3</maven.compiler.plugin.version>
 	</properties>
 
 	<dependencies>

@@ -1,0 +1,117 @@
+<?xml version="1.0"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>io.sealights.ci.agents</groupId>
+		<artifactId>maven-examples-container</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>maven-ex-cassandra</artifactId>
+	<name>maven-ex-cassandra</name>
+	<url>http://maven.apache.org</url>
+
+	<properties>
+		<guava.version>19.0</guava.version>
+		<cassandra.version>3.1.2</cassandra.version>
+		<cassandraunit.version>3.1.1.0</cassandraunit.version>
+	</properties>
+
+	<dependencies> 
+
+		<dependency>
+			<groupId>com.datastax.cassandra</groupId>
+			<artifactId>cassandra-driver-core</artifactId>
+			<version>${cassandra.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>${lombok.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>${logback.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-core</artifactId>
+            <version>${logback.version}</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>jcl-over-slf4j</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+        
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+			<version>${junit.version}</version>
+		</dependency>
+		
+<!-- 		<dependency> -->
+<!-- 		    <groupId>org.hectorclient</groupId> -->
+<!-- 		    <artifactId>hector-core</artifactId> -->
+<!-- 		    <version>1.1-2</version> -->
+<!-- 		</dependency> -->
+<!-- 		<dependency> -->
+<!-- 		    <groupId>org.apache.cassandra</groupId> -->
+<!-- 		    <artifactId>cassandra-all</artifactId> -->
+<!-- 		    <version>3.11.0</version> -->
+<!-- 		</dependency> -->		
+<!-- 		<dependency> -->
+<!-- 		    <groupId>org.yaml</groupId> -->
+<!-- 		    <artifactId>snakeyaml</artifactId> -->
+<!-- 		    <version>1.9</version> -->
+<!-- 		    <scope>test</scope> -->
+<!-- 		</dependency> -->
+		
+		<dependency>
+			<groupId>org.cassandraunit</groupId>
+			<artifactId>cassandra-unit</artifactId>
+			<version>${cassandraunit.version}</version>
+			<scope>test</scope>
+<!-- 		    <exclusions> -->
+<!-- 		        <exclusion> -->
+<!-- 		            <groupId>org.apache.cassandra</groupId> -->
+<!-- 		            <artifactId>cassandra-all</artifactId> -->
+<!-- 		        </exclusion> -->
+<!-- 		        <exclusion> -->
+<!-- 		            <groupId>org.hectorclient</groupId> -->
+<!-- 		            <artifactId>hector-core</artifactId> -->
+<!-- 		        </exclusion> -->
+<!-- 		    </exclusions> -->
+		</dependency>
+
+	</dependencies>
+	
+	<build>
+
+		<plugins>
+
+			<!-- ========================= -->
+			<!-- Compiler plug-in -->
+			<!-- ========================= -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven.compiler.plugin.version}</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+
+		</plugins>
+	</build>
+	
+</project>

@@ -20,12 +20,13 @@
 		<junit.version>4.12</junit.version>
 		<!-- <mockito.version>1.10.19</mockito.version> -->
 		<!-- <powermock.version>1.6.2</powermock.version> -->
+		
 		<!-- Java and Plugins versions -->
 		<!-- <java.version>1.7</java.version> -->
 		<!-- <maven.compiler.source>1.7</maven.compiler.source> -->
 		<!-- <maven.compiler.target>1.7</maven.compiler.target> -->
-		<!-- <maven.compiler.plugin.version>3.3</maven.compiler.plugin.version> -->
 		<!-- <maven.jar.plugin.version>2.4</maven.jar.plugin.version> -->
+		<maven.compiler.plugin.version>3.3</maven.compiler.plugin.version>
 		<maven.surefire.plugin.version>2.19.1</maven.surefire.plugin.version>
 <!--         <sealights.skip>true</sealights.skip> -->
         <sldebugOn>-agentlib:jdwp=transport=dt_socket,server=n,address=DESKTOP-FC1M245:5005,suspend=y</sldebugOn>
@@ -41,7 +42,8 @@
 		<module>example-java8</module>
     	<module>example-junit-testng</module>
     	<module>example-junit5</module>
-	</modules>
+<!--     	<module>example-cassandra</module> -->
+  </modules>
 
     <pluginRepositories>
         <pluginRepository>
