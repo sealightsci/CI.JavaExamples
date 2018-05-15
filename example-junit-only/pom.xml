@@ -88,8 +88,6 @@
 					<artifactId>sealights-maven-plugin</artifactId>
 					<configuration>
 						<appName>MavenExampleJUnitOnly</appName>
- 						<logLevel>debug</logLevel>
-<!-- 						<packagesincluded>edu.*, io.demo*</packagesincluded> -->
 						<buildScannerIgnoreLogEnabled>true</buildScannerIgnoreLogEnabled>	
 						<classLoadersExcluded>no</classLoadersExcluded>
 					</configuration>
