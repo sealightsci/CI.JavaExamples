@@ -1,117 +1,66 @@
-<?xml version="1.0"?>
-<project
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
-	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>io.sl.example</groupId>
+	<artifactId>ex-cassandra</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<name>ex-cassandra</name>
+	<description>Demo project for Spring Boot</description>
+
 	<parent>
-		<groupId>io.sealights.ci.agents</groupId>
-		<artifactId>maven-examples-container</artifactId>
-		<version>1.0.0-SNAPSHOT</version>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.0.2.RELEASE</version>
+		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 
-	<artifactId>maven-ex-cassandra</artifactId>
-	<name>maven-ex-cassandra</name>
-	<url>http://maven.apache.org</url>
-
 	<properties>
-		<guava.version>19.0</guava.version>
-		<cassandra.version>3.1.2</cassandra.version>
-		<cassandraunit.version>3.1.1.0</cassandraunit.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<spring.framework.version>5.0.6.RELEASE</spring.framework.version>
+		<java.version>1.8</java.version>
 	</properties>
 
-	<dependencies> 
-
+	<dependencies>
 		<dependency>
-			<groupId>com.datastax.cassandra</groupId>
-			<artifactId>cassandra-driver-core</artifactId>
-			<version>${cassandra.version}</version>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-cassandra</artifactId>
 		</dependency>
 
+        <dependency>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
-			<version>${lombok.version}</version>
-			<scope>provided</scope>
+			<optional>true</optional>
 		</dependency>
-		
-        <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-classic</artifactId>
-            <version>${logback.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-core</artifactId>
-            <version>${logback.version}</version>
-        </dependency>
-        
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>jcl-over-slf4j</artifactId>
-            <version>${slf4j.version}</version>
-        </dependency>
-        
 		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<scope>test</scope>
-			<version>${junit.version}</version>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-cassandra</artifactId>
+			<version>2.0.7.RELEASE</version>
 		</dependency>
-		
-<!-- 		<dependency> -->
-<!-- 		    <groupId>org.hectorclient</groupId> -->
-<!-- 		    <artifactId>hector-core</artifactId> -->
-<!-- 		    <version>1.1-2</version> -->
-<!-- 		</dependency> -->
-<!-- 		<dependency> -->
-<!-- 		    <groupId>org.apache.cassandra</groupId> -->
-<!-- 		    <artifactId>cassandra-all</artifactId> -->
-<!-- 		    <version>3.11.0</version> -->
-<!-- 		</dependency> -->		
-<!-- 		<dependency> -->
-<!-- 		    <groupId>org.yaml</groupId> -->
-<!-- 		    <artifactId>snakeyaml</artifactId> -->
-<!-- 		    <version>1.9</version> -->
-<!-- 		    <scope>test</scope> -->
-<!-- 		</dependency> -->
-		
 		<dependency>
-			<groupId>org.cassandraunit</groupId>
-			<artifactId>cassandra-unit</artifactId>
-			<version>${cassandraunit.version}</version>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
-<!-- 		    <exclusions> -->
-<!-- 		        <exclusion> -->
-<!-- 		            <groupId>org.apache.cassandra</groupId> -->
-<!-- 		            <artifactId>cassandra-all</artifactId> -->
-<!-- 		        </exclusion> -->
-<!-- 		        <exclusion> -->
-<!-- 		            <groupId>org.hectorclient</groupId> -->
-<!-- 		            <artifactId>hector-core</artifactId> -->
-<!-- 		        </exclusion> -->
-<!-- 		    </exclusions> -->
 		</dependency>
-
 	</dependencies>
-	
+
 	<build>
-
 		<plugins>
-
-			<!-- ========================= -->
-			<!-- Compiler plug-in -->
-			<!-- ========================= -->
 			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>${maven.compiler.plugin.version}</version>
-				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
-				</configuration>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-
 		</plugins>
 	</build>
-	
+
+
 </project>
