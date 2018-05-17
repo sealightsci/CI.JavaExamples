@@ -1,13 +1,12 @@
-package io.sl.example.excassandra;
+package io.sl.ex.cassandra.spring;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@EnableAutoConfiguration
+//@EnableAutoConfiguration
 public class CassandraApplication {
 	private static final Logger LOGGER = LoggerFactory.getLogger(CassandraApplication.class);
 	

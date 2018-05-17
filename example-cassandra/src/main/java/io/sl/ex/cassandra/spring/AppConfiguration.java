@@ -1,4 +1,4 @@
-package io.sl.example.excassandra;
+package io.sl.ex.cassandra.spring;
 
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.Bean;

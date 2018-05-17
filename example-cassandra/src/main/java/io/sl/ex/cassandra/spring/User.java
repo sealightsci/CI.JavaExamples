@@ -1,4 +1,4 @@
-package io.sl.example.excassandra;
+package io.sl.ex.cassandra.spring;
 
 import org.springframework.data.cassandra.core.mapping.Column;
 import org.springframework.data.cassandra.core.mapping.PrimaryKey;
