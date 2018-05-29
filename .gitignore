@@ -12,6 +12,7 @@ target/
 *.war
 *.ear
 
+
 #logs
 java-agent
 *.log
@@ -43,6 +44,9 @@ output/
 #Exclude the local-maven-repo
 /local-maven-repo
 
+#jacoco
+*.exec
+
 test-output/
 
 #gradle files
@@ -53,4 +57,32 @@ build/
 #other
 buildSessionId.txt
 sealights-config.properties
+
+#copied from ex-cassandra
+.mvn
+#!.mvn/wrapper/maven-wrapper.jar
+mvnw*
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/build/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
 

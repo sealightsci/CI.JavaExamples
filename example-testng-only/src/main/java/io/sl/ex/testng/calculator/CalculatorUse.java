@@ -1,4 +1,4 @@
-package io.sl.ex.junit.calculator;
+package io.sl.ex.testng.calculator;
 
 public class CalculatorUse {
 	
