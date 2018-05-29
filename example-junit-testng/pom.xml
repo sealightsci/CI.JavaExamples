@@ -32,25 +32,34 @@
             <version>${testng.version}</version>
         </dependency>
         
-		<!--  Logback Logging -->
-        <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-classic</artifactId>
-            <version>${logback.version}</version>
-        </dependency>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-all</artifactId>
+			<version>${mockito.version}</version>
+			<scope>provided</scope>
+		</dependency>
 
-        <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-core</artifactId>
-              <version>${logback.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-            <version>${slf4j.version}</version>
-        </dependency>
-
+		<dependency>
+			<groupId>org.powermock</groupId>
+			<artifactId>powermock-module-testng</artifactId>
+			<version>${powermock.version}</version>
+			<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.powermock</groupId>
+			<artifactId>powermock-module-testng-common</artifactId>
+			<version>${powermock.version}</version>
+			<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.powermock</groupId>
+			<artifactId>powermock-api-mockito</artifactId>
+			<version>${powermock.version}</version>
+			<scope>test</scope>
+		</dependency>
+		
 	</dependencies>
 	
     <build>
@@ -61,7 +70,9 @@
 					<artifactId>sealights-maven-plugin</artifactId>
 					<configuration>
 						<appName>MavenExampleJUnitTestNG</appName>
-<!-- 						<packagesincluded>edu.*, io.demo*</packagesincluded> -->
+						<logEnabled>false</logEnabled>
+						<buildScannerIgnoreLogEnabled>true</buildScannerIgnoreLogEnabled>
+<!-- 						<classLoadersExcluded>no</classLoadersExcluded> -->
 					</configuration>
 				</plugin>
 	        
