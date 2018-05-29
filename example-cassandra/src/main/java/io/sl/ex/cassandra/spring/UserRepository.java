@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.data.cassandra.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
-public interface BasicUserRepository extends CrudRepository<User, Long> {
+public interface UserRepository extends CrudRepository<User, String> {
 
 	/**
 	 * Sample method annotated with {@link Query}. This method executes the CQL from the {@link Query} value.
@@ -14,7 +14,7 @@ public interface BasicUserRepository extends CrudRepository<User, Long> {
 	 * @return
 	 */
 	@Query("SELECT * from users where user_id in(?0)")
-	User findUserByIdIn(long id);
+	User findUserByIdIn(String id);
 
 	/**
 	 * Derived query method. This query corresponds with {@code SELECT * FROM users WHERE uname = ?0}.
