@@ -4,8 +4,9 @@ The repository contains example projects , which are integrated with the sealigh
  and gardle plugins. 
  * example-java8 - java8 specific stuff: streams, lambdas etc.
  * example-junit5 - a combination of JUnit5 and JUnit4 tests.
- * example-junit-only - JUnit4 tests with using of PowerMock.
+ * example-junit-only - JUnit4 tests, some using the PowerMock.
  * example-junit-testng - a combination of JUnit4 and TestNG tests
+ * example-testng-only - TestNG tests, some using the PowerMock (only for Maven plugin).
 
 Build types
 =========== 
