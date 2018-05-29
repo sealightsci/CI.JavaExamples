@@ -44,6 +44,9 @@ output/
 #Exclude the local-maven-repo
 /local-maven-repo
 
+#jacoco
+*.exec
+
 test-output/
 
 #gradle files
@@ -82,3 +85,4 @@ mvnw*
 /dist/
 /nbdist/
 /.nb-gradle/
+
