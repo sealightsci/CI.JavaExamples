@@ -12,6 +12,7 @@ target/
 *.war
 *.ear
 
+
 #logs
 java-agent
 *.log
@@ -54,3 +55,30 @@ build/
 buildSessionId.txt
 sealights-config.properties
 
+#copied from ex-cassandra
+.mvn
+#!.mvn/wrapper/maven-wrapper.jar
+mvnw*
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/build/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
