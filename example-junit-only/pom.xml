@@ -15,7 +15,7 @@
 
 	<properties>
 		<!-- The property demands active debug session in Inteliji -->
-<!-- 		<sldebug>${sldebugOn}</sldebug> -->
+		<!-- <sldebug>${sldebugOn}</sldebug> -->
 		<sldebug> </sldebug>
 		<!-- Enforcement of power mock agent - not needed in the current tests, just for memo -->
 <!-- 		<powermock.agent.arg>-javaagent:'C:\Users\ala schneider\Dev\CI.JavaExamples\powermock-module-javaagent-1.7.1.jar'</powermock.agent.arg> -->
@@ -68,8 +68,13 @@
 					<configuration>
 						<appName>MavenExampleJUnitOnly</appName>
 						<buildScannerIgnoreLogEnabled>true</buildScannerIgnoreLogEnabled>
-						<logEnabled>true</logEnabled>
+						<!-- <logEnabled>false</logEnabled> -->
+						<logToConsole>false</logToConsole>
 						<classLoadersExcluded>no</classLoadersExcluded>
+						<filesexcluded>none</filesexcluded>
+						<sealightsJvmParams>
+							<sl.featuresData.sendPartialFootprints>true</sl.featuresData.sendPartialFootprints>
+						</sealightsJvmParams>
 					</configuration>
 				</plugin>	        
 		<!-- Enforcement of power mock agent - not needed in the current tests, just for memo -->

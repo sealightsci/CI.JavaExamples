@@ -1,29 +1,24 @@
-package io.sl.ex.junit.calculator;
+package io.sl.ex.junit.calculator.powermock.tests;
 
 import static org.junit.Assert.assertTrue;
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.Spy;
 import org.powermock.api.mockito.PowerMockito;
-import org.powermock.core.classloader.annotations.PowerMockIgnore;
 import org.powermock.core.classloader.annotations.PrepareForTest;
-import org.powermock.modules.junit4.PowerMockRunner;
+import org.powermock.modules.junit4.rule.PowerMockRule;
 
-@RunWith(PowerMockRunner.class)
+import io.sl.ex.junit.calculator.Calculator;
+import io.sl.ex.junit.calculator.CalculatorFactory;
+import io.sl.ex.junit.calculator.CalculatorUse;
+
 @PrepareForTest({CalculatorFactory.class})
-@PowerMockIgnore("javax.management.*")
-public class CalculatorUsePowerMockRunnerTest {
-	
-	@Mock
-	Calculator calc;
-	@Spy
-	@InjectMocks
-	CalculatorUse calcUse = new CalculatorUse();
+public class CalculatorUsePowerMockRuleTest {
+    @Rule
+    public PowerMockRule rule = new PowerMockRule();
 
 	@Before
 	public void setUp() throws Exception {
@@ -31,13 +26,14 @@ public class CalculatorUsePowerMockRunnerTest {
 	}
 
 	@Test
-	public void testCalcSum_wihMocks() {
+	public void testCalcMul_wihMocks() {
 		System.out.println("-----------------See this 'testCalcSum_wihMocks' is running .........");
 		System.out.println("Current class loader:" + getClass().getClassLoader().toString());
+		Calculator calc = mock(Calculator.class);
 		when(calc.doSum(1, 1)).thenReturn(0);
 		when(CalculatorFactory.createCalculator()).thenReturn(calc);
-		assertTrue(calcUse.calcSum(1, 1) == 0);
-		//verify(calc).doSum(1, 1);
+		CalculatorUse mgr = new CalculatorUse();
+		assertTrue(mgr.calcMul(1, 1) == 0);
 	}
 
 }
