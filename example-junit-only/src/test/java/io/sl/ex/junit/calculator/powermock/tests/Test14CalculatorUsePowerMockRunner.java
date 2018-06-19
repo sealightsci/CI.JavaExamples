@@ -16,7 +16,7 @@ public class Test14CalculatorUsePowerMockRunner extends BaseTestCalculatorUsePow
 		for (int i = 1; i<50; i++) {
 			when(calc.doMod(i*2,i)).thenReturn(2);
 			when(CalculatorFactory.createCalculator()).thenReturn(calc);
-			sleep(50);
+			sleep(SLEEP_SHORT);
 			assertTrue(calcUse.calcMod(i*2,i) == 2);
 		}
 	}
@@ -28,7 +28,7 @@ public class Test14CalculatorUsePowerMockRunner extends BaseTestCalculatorUsePow
 		for (int i=50; i>0; i--) {
 			when(calc.doPower(i)).thenReturn(i*i);
 			when(CalculatorFactory.createCalculator()).thenReturn(calc);
-			sleep(50);
+			sleep(SLEEP_SHORT);
 			assertTrue(calcUse.calcPower(i) == i*i);
 		}
 	}

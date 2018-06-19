@@ -16,7 +16,7 @@ public class Test11CalculatorUsePowerMockRunner extends BaseTestCalculatorUsePow
 		System.out.println("Current class loader:" + getClass().getClassLoader().toString());
 		when(calc.doDiv(1, 1)).thenReturn(1);
 		when(CalculatorFactory.createCalculator()).thenReturn(calc);
-		sleep(500);
+		sleep(SLEEP_LONG);
 		assertTrue(calcUse.calcDiv(1, 1) == 1);
 		//verify(calc).doSum(1, 1);
 	}
@@ -28,7 +28,7 @@ public class Test11CalculatorUsePowerMockRunner extends BaseTestCalculatorUsePow
 		when(calc.doDouble(1)).thenReturn(2);
 		when(CalculatorFactory.createCalculator()).thenReturn(calc);
 		CalculatorUse mgr = new CalculatorUse();
-		sleep(500);
+		sleep(SLEEP_LONG);
 		assertTrue(mgr.calcDouble(1) == 2);
 	}
 	

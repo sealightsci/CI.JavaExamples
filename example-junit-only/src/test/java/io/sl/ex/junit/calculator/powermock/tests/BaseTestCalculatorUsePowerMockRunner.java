@@ -19,6 +19,9 @@ import io.sl.ex.junit.calculator.CalculatorUse;
 @PowerMockIgnore("javax.management.*")
 public abstract class BaseTestCalculatorUsePowerMockRunner {
 	
+	static protected int SLEEP_LONG = 1000;
+	static protected int SLEEP_SHORT = 100;
+	
 	@Mock
 	Calculator calc;
 	@Spy

@@ -16,7 +16,7 @@ public class Test13CalculatorUsePowerMockRunner extends BaseTestCalculatorUsePow
 		for (int i = 1; i<50; i++) {
 			when(calc.doInc(i)).thenReturn(i+1);
 			when(CalculatorFactory.createCalculator()).thenReturn(calc);
-			sleep(50);
+			sleep(SLEEP_SHORT);
 			assertTrue(calcUse.calcInc(i) == i+1);
 		}
 	}
@@ -28,7 +28,7 @@ public class Test13CalculatorUsePowerMockRunner extends BaseTestCalculatorUsePow
 		for (int i=50; i>0; i--) {
 			when(calc.doDec(i)).thenReturn(i-1);
 			when(CalculatorFactory.createCalculator()).thenReturn(calc);
-			sleep(50);
+			sleep(SLEEP_SHORT);
 			assertTrue(calcUse.calcDec(i) == i-1);
 		}
 	}
