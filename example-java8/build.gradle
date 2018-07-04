@@ -13,7 +13,6 @@ dependencies {
  */
 buildscript {
     repositories {
-        mavenCentral()
         // jcenter()
         maven {
             credentials {
@@ -23,9 +22,6 @@ buildscript {
             url "http://nex.sealights.co:8081/repository/sealights-internal"
         }
         mavenLocal()
-    }
-    dependencies {
-        classpath "io.sealights.on-premise.agents.plugin:sealights-gradle-plugin:${versions.sealights}"
     }
 }
 

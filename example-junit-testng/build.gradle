@@ -2,6 +2,11 @@
 dependencies {
     testCompile "junit:junit:${versions.junit}"
     testCompile "org.testng:testng:${versions.testng}"
+    testCompile "org.mockito:mockito-all:${versions.mockito}"
+    testCompile "org.powermock:powermock-api-mockito:${versions.powermock}"
+    testCompile "org.powermock:powermock-module-junit4:${versions.powermock}"
+    testCompile "org.powermock:powermock-module-junit4-rule-agent:${versions.powermock}"
+    testCompile "org.powermock:powermock-module-testng:${versions.powermock}"
     compile "ch.qos.logback:logback-classic:${versions.logback}"
     compile "ch.qos.logback:logback-core:${versions.logback}"
     compile "org.slf4j:slf4j-api:${versions.slf4j}"
@@ -23,9 +28,6 @@ buildscript {
             url "http://nex.sealights.co:8081/repository/sealights-internal"
         }
         mavenLocal()
-    }
-    dependencies {
-        classpath "io.sealights.on-premise.agents.plugin:sealights-gradle-plugin:${versions.sealights}"
     }
 }
 

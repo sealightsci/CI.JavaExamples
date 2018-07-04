@@ -13,7 +13,6 @@ buildscript {
 	}
 	dependencies {
 		classpath 'org.junit.platform:junit-platform-gradle-plugin:1.1.0'
-		classpath "io.sealights.on-premise.agents.plugin:sealights-gradle-plugin:${versions.sealights}"
 	}
 }
 
