@@ -1,10 +1,6 @@
-package io.sl.ex.junit.calculator;
-
-import static org.junit.Assert.assertTrue;
-import static org.mockito.Mockito.when;
+package io.sl.ex.junit.calculator.powermock.tests;
 
 import org.junit.Before;
-import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -14,10 +10,17 @@ import org.powermock.core.classloader.annotations.PowerMockIgnore;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 
+import io.sl.ex.junit.calculator.Calculator;
+import io.sl.ex.junit.calculator.CalculatorFactory;
+import io.sl.ex.junit.calculator.CalculatorUse;
+
 @RunWith(PowerMockRunner.class)
 @PrepareForTest({CalculatorFactory.class})
 @PowerMockIgnore("javax.management.*")
-public class CalculatorUsePowerMockRunnerTest {
+public abstract class BaseTestCalculatorUsePowerMockRunner {
+	
+	static protected int SLEEP_LONG = 1000;
+	static protected int SLEEP_SHORT = 100;
 	
 	@Mock
 	Calculator calc;
@@ -30,14 +33,12 @@ public class CalculatorUsePowerMockRunnerTest {
 		PowerMockito.mockStatic(CalculatorFactory.class);
 	}
 
-	@Test
-	public void testCalcSum_wihMocks() {
-		System.out.println("-----------------See this 'testCalcSum_wihMocks' is running .........");
-		System.out.println("Current class loader:" + getClass().getClassLoader().toString());
-		when(calc.doSum(1, 1)).thenReturn(0);
-		when(CalculatorFactory.createCalculator()).thenReturn(calc);
-		assertTrue(calcUse.calcSum(1, 1) == 0);
-		//verify(calc).doSum(1, 1);
+	protected void sleep(int millis) {
+		try {
+			Thread.sleep(millis);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
-
 }

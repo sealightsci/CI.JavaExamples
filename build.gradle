@@ -39,6 +39,7 @@ dependencies {
 
 buildscript {
     repositories {
+        mavenCentral()
         maven {
             credentials {
                 username "devops"
@@ -49,9 +50,9 @@ buildscript {
         mavenLocal()
     }
     dependencies {
-        classpath 'io.sealights.on-premise.agents.plugin:sealights-gradle-plugin:2.0.0-SNAPSHOT'
+        // classpath 'io.sealights.on-premise.agents.plugin:sealights-gradle-plugin:2.0.0-SNAPSHOT'
         //classpath 'io.sealights.on-premise.agents.plugin:sealights-gradle-plugin:2.0.45'
-//        classpath 'io.sealights.on-premise.agents.plugin:sealights-gradle-plugin:latest.release'
+        classpath 'io.sealights.on-premise.agents.plugin:sealights-gradle-plugin:latest.release'
     }
 }
 
@@ -87,8 +88,8 @@ subprojects {
             // buildScannerIgnoreLogEnabled=true
             // testListenerIgnoreLogEnabled=true
             // testStage = "ut1"
-             testListenerJar = "C:/Users/ala schneider/Dev/SL.OnPremise.Agents.Java/java-agent-bootstrapper/target/java-agent-bootstrapper-1.0.0-SNAPSHOT.jar"
-             buildScannerJar = "C:/Users/ala schneider/Dev/SL.OnPremise.Agents.Java/java-build-agent/target/java-build-agent-1.0.0-SNAPSHOT.jar"
+//             testListenerJar = "C:/Users/ala schneider/Dev/SL.OnPremise.Agents.Java/java-agent-bootstrapper/target/java-agent-bootstrapper-1.0.0-SNAPSHOT.jar"
+//             buildScannerJar = "C:/Users/ala schneider/Dev/SL.OnPremise.Agents.Java/java-build-agent/target/java-build-agent-1.0.0-SNAPSHOT.jar"
             // The test tasks names for applying the test listener
             // If not provided, the default tasks are assigned like in commented value
             //testTasks=["test", "junitPlatformTest", "integrationTest"]

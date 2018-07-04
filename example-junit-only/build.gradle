@@ -26,9 +26,6 @@ buildscript {
         }
         mavenLocal()
     }
-    dependencies {
-        classpath "io.sealights.on-premise.agents.plugin:sealights-gradle-plugin:${versions.sealights}"
-    }
 }
 
 /**

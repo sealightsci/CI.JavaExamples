@@ -28,9 +28,9 @@
 		<!-- <maven.compiler.target>1.7</maven.compiler.target> -->
 		<!-- <maven.jar.plugin.version>2.4</maven.jar.plugin.version> -->
 		<maven.compiler.plugin.version>3.3</maven.compiler.plugin.version>
-		<maven.surefire.plugin.version>2.19.1</maven.surefire.plugin.version>
+		<maven.surefire.plugin.version>2.20.1</maven.surefire.plugin.version>
 		<!-- The development version  -->
-<!-- 		<sealights.plugin.version>2.0.0</sealights.plugin.version> -->
+		<!-- sealights.plugin.version>2.0.0</sealights.plugin.version> -->
 		<!-- Recent version  -->
 		<sealights.plugin.version>2.0.303</sealights.plugin.version>
 		
@@ -79,13 +79,6 @@
         </dependency>
 
 	</dependencies>
-
-    <pluginRepositories>
-        <pluginRepository>
-            <id>sealights-internal</id>
-            <url>http://nex.sealights.co:8081/repository/sealights-internal</url>
-        </pluginRepository>
-    </pluginRepositories>
 
 	<build>
 	
@@ -168,7 +161,9 @@
 						<includeResources>true</includeResources>
 						<!--Path to valid token should be set-->
 						<!--<tokenFile>path/to/token</tokenFile>-->
-<!-- 						<tokenFile>C:\SL\ENV\tokens\sl_token_ala.txt</tokenFile> -->
+						<!--<tokenFile>C:\SL\ENV\tokens\sl_token_ala.txt</tokenFile>-->
+						<!-- Linux env -->
+						<!-- <tokenFile>sl_ala1_token.txt</tokenFile> -->
 						<build>${sl.build}</build>
 						<branch>master</branch>
 						<createBuildSessionId>true</createBuildSessionId>
@@ -179,7 +174,7 @@
 						<packagesincluded>io.sl.ex.*</packagesincluded>
 						<filesexcluded>*test-classes*</filesexcluded>
 						<logEnabled>true</logEnabled>
-						<logLevel>info</logLevel>
+						<logLevel>debug</logLevel>
 						<logToConsole>true</logToConsole>
 						<logToFile>true</logToFile>
 						<testStage>Unit Tests</testStage>
@@ -190,15 +185,21 @@
 						<!--<proxy>127.0.0.1:8888</proxy> -->
 						<!--<server>http://54.154.181.128:8080/api</server> -->
 						<sendContributors>true</sendContributors>
-<!-- 						<testListenerJar>C:\Users\ala schneider\Dev\SL.OnPremise.Agents.Java\java-agent-bootstrapper\target\java-agent-bootstrapper-1.0.0-SNAPSHOT.jar</testListenerJar> -->
-<!-- 						<buildScannerJar>C:\Users\ala schneider\Dev\SL.OnPremise.Agents.Java\java-build-agent\target\java-build-agent-1.0.0-SNAPSHOT.jar</buildScannerJar> -->
-						<sealightsJvmParams>
+<!-- 						<testListenerJar>C:\Users\ala schneider\Dev\SL.OnPremise.Agents.Java\java-agent-bootstrapper\target\java-agent-bootstrapper-1.0.0-SNAPSHOT.jar</testListenerJar>
+						<buildScannerJar>C:\Users\ala schneider\Dev\SL.OnPremise.Agents.Java\java-build-agent\target\java-build-agent-1.0.0-SNAPSHOT.jar</buildScannerJar>
+ -->
+ 						<!-- Linux env -->
+<!-- 		            <buildScannerJar>../SL.OnPremise.Agents.Java/java-build-agent/target/java-build-agent-1.0.0-SNAPSHOT.jar</buildScannerJar>
+		                <testListenerJar>../SL.OnPremise.Agents.Java/java-agent-bootstrapper/target/java-agent-bootstrapper-1.0.0-SNAPSHOT.jar</testListenerJar>
+ --> 
+ 						<sealightsJvmParams>
 							<!-- <sl.scm.baseUrl>https://github.com/alasch2/MavenExample/</sl.scm.baseUrl> -->
 							<!-- <sl.scm>none</sl.scm> -->
 							<!-- <sl.scm.provider>github</sl.scm.provider> -->
 							<!-- <sl.scm.version>4.6</sl.scm.version> -->
 							<sl.featuresData.reportOnGettersAndSetters>false</sl.featuresData.reportOnGettersAndSetters>
 							<sl.featuresData.reportOnConstructors>false</sl.featuresData.reportOnConstructors>
+							<sl.featuresData.sendPartialFootprints>false</sl.featuresData.sendPartialFootprints>
 						</sealightsJvmParams>
 							<!-- <metadata> -->
 							<!-- 	<jobName>${JOB_NAME}</jobName> -->
@@ -312,6 +313,7 @@
 						<!-- using different application name and packages -->
 						<configuration>
 							<appName>AllMavenExamples</appName>
+							<!-- <appName>AllMavenExamples-Linux</appName> -->
 						</configuration>
 					</plugin>
 					

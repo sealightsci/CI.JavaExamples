@@ -1,4 +1,4 @@
-package io.sl.ex.junit.calculator;
+package io.sl.ex.junit.calculator.powermock.tests;
 
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
@@ -10,6 +10,10 @@ import org.junit.Test;
 import org.powermock.api.mockito.PowerMockito;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.rule.PowerMockRule;
+
+import io.sl.ex.junit.calculator.Calculator;
+import io.sl.ex.junit.calculator.CalculatorFactory;
+import io.sl.ex.junit.calculator.CalculatorUse;
 
 @PrepareForTest({CalculatorFactory.class})
 public class CalculatorUsePowerMockRuleTest {
