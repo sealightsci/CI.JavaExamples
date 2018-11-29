@@ -19,10 +19,6 @@
 		<mockito.version>1.10.19</mockito.version>
 		<powermock.version>1.7.0</powermock.version>
 		<powermock.testng.version>1.7.4</powermock.testng.version>
-		<!-- The below version of powermock causes surefire failure, if MockClassLoader is allowed -->
-<!-- 		<powermock.version>1.6.4</powermock.version>
-		<powermock.testng.version>1.6.4</powermock.testng.version>
- -->
  	</properties>
 	
 	<dependencies>
@@ -48,13 +44,6 @@
 			<scope>test</scope>
 		</dependency>
 		
-<!-- 		<dependency> -->
-<!-- 			<groupId>org.powermock</groupId> -->
-<!-- 			<artifactId>powermock-module-testng-common</artifactId> -->
-<!-- 			<version>${powermock.version}</version> -->
-<!-- 			<scope>test</scope> -->
-<!-- 		</dependency> -->
-		
 		<dependency>
 			<groupId>org.powermock</groupId>
 			<artifactId>powermock-api-mockito</artifactId>
@@ -72,12 +61,8 @@
 					<artifactId>sealights-maven-plugin</artifactId>
 					<configuration>
 						<appName>MavenExampleTestNGOnly</appName>
-<!-- 						<logEnabled>false</logEnabled> -->
-						<buildScannerIgnoreLogEnabled>true</buildScannerIgnoreLogEnabled>
-						<classLoadersExcluded>no</classLoadersExcluded>
 					</configuration>
-				</plugin>
-				
+				</plugin>				
          </plugins>
     </build>
     

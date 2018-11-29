@@ -19,14 +19,6 @@ dependencies {
 buildscript {
     repositories {
         mavenCentral()
-        // jcenter()
-        maven {
-            credentials {
-                username "devops"
-                password "s2015l"
-            }
-            url "http://nex.sealights.co:8081/repository/sealights-internal"
-        }
         mavenLocal()
     }
 }
