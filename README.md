@@ -55,11 +55,11 @@ on any build with _'sl'_ or _'sl-all'_ profile.
    _mvn clean install -Psl-all -Dsl.build=12345_
 2. Build a particular project from the root project directory:
 
-   _mvn clean install -f example-java8 -Psl -Dbuild=12345_  
+   _mvn clean install -f example-java8 -Psl -Dsl.build=12345_  
    
 3. Build a particular project from the project directory:
    
-   _mvn clean install -Psl -Dbuild=12345_  
+   _mvn clean install -Psl -Dsl.build=12345_  
    
 Gradle examples
 ===============
@@ -92,7 +92,7 @@ in the build command. See the Examples section for usage.
     _gradle build test -P sl -P all -Djunit5=true -Dsl.build=12345_
 3. Build a particular project with sealights **should be run from the subproject directory**:
 
-   _gradle build test -P sl -Dbuild=12345_
+   _gradle build test -P sl -Dsl.build=12345_
  4. Build a particular project with sealights and junit5 tests:
  
     _/path/to/gradle-4.6/gradle build test -P sl -Djunit5=true -Dsl.build=12345_
